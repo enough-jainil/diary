@@ -2,7 +2,7 @@ var winWidth = $(window).width();
 var ratio = winWidth / 1920;
 var fontSize = {
   small: 12,
-  medium: 14
+  medium: 14,
 };
 var played = [0, 0, 0];
 var vara = [];
@@ -16,40 +16,41 @@ vara[0] = new Vara(
   "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
   [
     {
-      text: "15 Jan 2019",
+      text: "10 May 19 ",
       textAlign: "right",
       y: 20,
       x: -30,
       delay: 500,
       duration: 1500,
-      fontSize: fontSize.small
+      fontSize: fontSize.small,
     },
     {
-      text: "Start the year with something cool.",
+      text: "Jab maine tumhe pehli baar dekha, meri duniya badal gayi.",
       y: 40,
       x: posX,
-      duration: 4000
+      duration: 4000,
     },
     {
-      text: "Like with a library,",
+      text: "Tumhari muskaan, aur tumhare pyaare se cahere par woh pyara sa til bahot accha lagta hai yaar.",
       id: "sphinx",
       x: posX,
       delay: 1000,
-      duration: 4500
+      duration: 4500,
     },
     {
-      text: "..... that can animate text writing",
+      // text: "I know you don't have feelings for me, but I have",
+      text: "",
       id: "end",
       color: "#3f51b5",
       delay: 1000,
       x: posX,
-      duration: 4500
-    }
+      duration: 4500,
+    },
   ],
   {
     strokeWidth: 2,
     fontSize: fontSize.medium,
-    autoAnimation: false
+    autoAnimation: false,
   }
 );
 vara[1] = new Vara(
@@ -57,31 +58,31 @@ vara[1] = new Vara(
   "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
   [
     {
-      text: "16 Jan 2019",
+      text: "16 June 19",
       textAlign: "right",
       delay: 500,
       y: 20,
       x: -30,
       duration: 1500,
-      fontSize: fontSize.small
+      fontSize: fontSize.small,
     },
     {
-      text: "Try to create something else.",
+      text: "I know you told me I will find better than you, but",
       y: 40,
       x: posX,
-      duration: 4000
+      duration: 4000,
     },
     {
-      text: "Like a diary or a todo list.",
+      text: "Tuje bhi pata hai aur muje bhi nahi mile gi. Aur mil bhi jaye to tu hi rakh nahi cahiye muje tujse aachi...",
       y: 40,
       x: posX,
-      duration: 3500
-    }
+      duration: 3500,
+    },
   ],
   {
     strokeWidth: 2,
     fontSize: fontSize.medium,
-    autoAnimation: false
+    autoAnimation: false,
   }
 );
 vara[2] = new Vara(
@@ -89,53 +90,47 @@ vara[2] = new Vara(
   "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
   [
     {
-      text: "17 Jan 2019",
+      text: "11 Oct 19",
       textAlign: "right",
       delay: 500,
       y: 20,
       x: -30,
       duration: 1500,
-      fontSize: fontSize.small
+      fontSize: fontSize.small,
     },
     {
-      text: "Creating a Diary.",
+      text: "Kyoki",
       y: 40,
       x: posX,
-      duration: 4000
+      duration: 4000,
     },
     {
-      text: "View the library on,",
+      text: "Koi, aur dooja, kyun mujhe Na tere siva chahiye, Pls..",
       y: 20,
       x: posX,
-      duration: 3500
+      duration: 3500,
     },
     {
-      text: "Github.",
-      y: 10,
-      color: "#3f51b5",
-      id: "link",
+      text: "Aj tera birthday tha tune white chaniya choli. Sach mein tum pari lag rahi thi.",
+      y: 20,
       x: posX,
-      duration: 1500
-    }
+      duration: 3500,
+    },
   ],
   {
     strokeWidth: 2,
     fontSize: fontSize.medium,
-    autoAnimation: false
+    autoAnimation: false,
   }
 );
-vara[2].ready(function() {
-  $(".front:not(.last)").click(function() {
-    var ix = $(this)
-      .parent(".paper")
-      .index();
+vara[2].ready(function () {
+  $(".front:not(.last)").click(function () {
+    var ix = $(this).parent(".paper").index();
     $(".book").addClass("open");
-    $(this)
-      .parent(".paper")
-      .addClass("open");
+    $(this).parent(".paper").addClass("open");
     if (!played[ix]) {
       vara[ix].playAll();
-      vara[ix].animationEnd(function(i, o) {
+      vara[ix].animationEnd(function (i, o) {
         played[ix] = 1;
         if (i == "link") {
           var group = o.container;
@@ -144,11 +139,11 @@ vara[2].ready(function() {
             y: 0,
             width: o.container.getBoundingClientRect().width,
             height: o.container.getBoundingClientRect().height,
-            fill: "transparent"
+            fill: "transparent",
           });
           group.appendChild(rect);
           $(rect).css("cursor", "pointer");
-          $(rect).click(function() {
+          $(rect).click(function () {
             console.log(true);
             document.querySelector("#link").click();
           });
@@ -156,15 +151,8 @@ vara[2].ready(function() {
       });
     }
   });
-  $(".back").click(function() {
-    if (
-      $(this)
-        .parent(".paper")
-        .index() == 0
-    )
-      $(".book").removeClass("open");
-    $(this)
-      .parent(".paper")
-      .removeClass("open");
+  $(".back").click(function () {
+    if ($(this).parent(".paper").index() == 0) $(".book").removeClass("open");
+    $(this).parent(".paper").removeClass("open");
   });
 });
