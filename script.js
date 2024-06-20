@@ -11,6 +11,24 @@ var posX = Math.max(80 * ratio, 30);
 $("body").css("font-size", bodyFontSize + "px");
 fontSize.small = Math.max(fontSize.small * ratio, 7);
 fontSize.medium = Math.max(fontSize.medium * ratio, 10);
+
+$(window).on("resize", function () {
+  winWidth = $(window).width();
+  ratio = winWidth / 1920;
+  bodyFontSize = Math.max(16 * ratio, 10);
+  posX = Math.max(80 * ratio, 30);
+  $("body").css("font-size", bodyFontSize + "px");
+  fontSize.small = Math.max(fontSize.small * ratio, 7);
+  fontSize.medium = Math.max(fontSize.medium * ratio, 10);
+
+  vara.forEach(function (v) {
+    v.animation.reset();
+    v.animation.updateOptions({
+      fontSize: fontSize.medium,
+    });
+  });
+});
+
 vara[0] = new Vara(
   "#vara-container",
   "https://rawcdn.githack.com/akzhy/Vara/ed6ab92fdf196596266ae76867c415fa659eb348/fonts/Satisfy/SatisfySL.json",
@@ -102,21 +120,13 @@ vara[2] = new Vara(
       y: 40,
       x: posX,
       duration: 4000,
-      color: "#3f51b5",
     },
     {
-      text: "Koi, aur dooja, kyun mujhe Na tere siva chahiye, Har safar mein mujhe Tu hi rehnuma chahiye, Jeene ko, bas mujhe Tu hi mehrma chahiye... Please...",
+      text: "Koi, aur dooja, kyun mujhe Na tere siva chahiye, Har safar mein mujhe Tu hi rehnuma chahiye, Jeene ko, bas mujhe Tu hi mehrma chahiye... Please..",
       y: 20,
       x: posX,
       duration: 3500,
     },
-    // {
-    //   text: "Please...",
-    //   y: 10,
-    //   // id: "link",
-    //   x: posX,
-    //   duration: 1500,
-    // },
   ],
   {
     strokeWidth: 2,

@@ -1,5 +1,11 @@
 @import url("https://use.typekit.net/zxh7bes.css");
 
+/*
+
+Click the diary to start animating.
+View the project on Github : https://github.com/akzhy/Vara
+
+*/
 html,
 body {
   height: 100%;
@@ -95,6 +101,7 @@ body {
   backface-visibility: hidden;
   z-index: 2;
 }
+
 .book .page {
   width: 100%;
   height: 100%;
@@ -208,34 +215,7 @@ body {
   text-decoration: none;
 }
 @media (max-width: 700px) {
-  #container {
-    width: 90%;
-  }
   .book {
-    width: 20em;
-    height: 30em;
-  }
-  .book .side {
-    width: 2em;
-    height: 30em;
-  }
-  .book .bottom {
-    width: 20em;
-    height: 2em;
-  }
-  .book .paper,
-  .book .shadow {
-    width: 20em;
-    height: 30em;
-  }
-  .book .intro h2 {
-    font-size: 1.5em;
-  }
-  .book .intro h1 {
-    font-size: 4em;
-  }
-  .book .intro {
-    width: 80%;
-    height: 80%;
+    left: 50%;
   }
 }
